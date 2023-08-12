@@ -22,8 +22,15 @@ canvas.addEventListener('mousedown', function(event){
 // Player
 class Player {
   constructor() {
-    this.x = canvas.width/2;
+    this.x = canvas.width;
     this.y = canvas.height/2;
+    this.radius = 50;
+    this.angle = 0;
+    this.frameX = 0;
+    this.frameY = 0;
+    this.frame = 0;
+    this.spriteWidth = 498;
+    this.spriteHeight = 327;
   }
 }
 // Bubbles
