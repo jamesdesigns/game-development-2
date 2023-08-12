@@ -32,6 +32,9 @@ class Player {
     this.spriteWidth = 498;
     this.spriteHeight = 327;
   }
+  update() {
+    const dx = this.x - mouse.x;
+  }
 }
 // Bubbles
 // Animation Loop
