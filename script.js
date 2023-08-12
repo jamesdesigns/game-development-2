@@ -9,16 +9,22 @@ let gameFrame = 0;
 ctx.font = '50px Georgia';
 
 // Mouse Interactivity
+let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
   x: canvas.width/2,
   y: canvas.height/2,
   click: false
 }
 canvas.addEventListener('mousedown', function(event){
-  mouse.x = event.x;
-  mouse.y = event.y;
-  console.log(mouse.x, mouse.y);
+  mouse.x = event.x - canvasPosition.left;
+  mouse.y = event.y - canvasPosition.top;
 })
 // Player
+class Player {
+  constructor() {
+    this.x = canvas.width/2;
+    this.y = canvas.height/2;
+  }
+}
 // Bubbles
 // Animation Loop
