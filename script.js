@@ -11,7 +11,8 @@ ctx.font = '50px Georgia';
 // Mouse Interactivity
 let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
-  x: canvas.width/2,
+  // x: canvas.width/2,
+  x: 0,
   y: canvas.height/2,
   click: false
 }
@@ -40,10 +41,10 @@ class Player {
     const dx = this.x - mouse.x;
     const dy = this.y - mouse.y;
     if (mouse.x != this.x) {
-      this.x-=dx/20;
+      this.x-=dx/10;
     }
     if(mouse.y != this.y) {
-      this.y -= dy/20;
+      this.y -= dy/10;
     }
   }
   draw() {
