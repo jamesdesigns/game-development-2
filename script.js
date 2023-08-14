@@ -76,13 +76,32 @@ class Bubble {
   update() {
     this.y -= this.speed;
   }
+  draw() {
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke();
+  }
+}
+function handleBubbles() {
+  if (gameFrame % 50 == 0) {
+    bubblesArray.push(new Bubble());
+  }
+  for (let i = 0; i < bubblesArray.length; i++) {
+    bubblesArray[i].update();
+    bubblesArray[i].draw();
+  }
 }
 
 // Animation Loop
 function animate() {
   ctx.clearRect(0,0, canvas.width, canvas.height);
+  handleBubbles();
   player.update();
   player.draw();
+  gameFrame++;
   requestAnimationFrame(animate);
 }
 animate();
