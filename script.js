@@ -64,6 +64,20 @@ class Player {
 }
 const player = new Player();
 // Bubbles
+const bubblesArray = []
+class Bubble {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.radius = 50;
+    this.speed = Math.random() * 5 + 1;
+    this.distance;
+  }
+  update() {
+    this.y -= this.speed;
+  }
+}
+
 // Animation Loop
 function animate() {
   ctx.clearRect(0,0, canvas.width, canvas.height);
