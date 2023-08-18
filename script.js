@@ -26,9 +26,9 @@ canvas.addEventListener('mouseup', function() {
 })
 // Player
 const playerLeft = new Image();
-playerLeft.src = 'character_move_left.png'; // Find the perfect character for game
+playerLeft.src = 'character_move_left.png'; // Find the perfect character facing left for game
 const playerRight = new Image();
-playerRight.src = 'character_move_right.png';
+playerRight.src = 'character_move_right.png'; // Find the perfect character facing right for game
 
 class Player {
   constructor() {
@@ -65,6 +65,9 @@ class Player {
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
+    ctx.fillRect(this.x, this.y, this.radius, 10);
+
+    ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
   }
 }
 const player = new Player();
