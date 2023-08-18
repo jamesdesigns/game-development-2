@@ -27,6 +27,8 @@ canvas.addEventListener('mouseup', function() {
 // Player
 const playerLeft = new Image();
 playerLeft.src = 'character_move_left.png'; // Find the perfect character for game
+const playerRight = new Image();
+playerRight.src = 'character_move_right.png';
 
 class Player {
   constructor() {
