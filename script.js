@@ -67,7 +67,13 @@ class Player {
     ctx.closePath();
     ctx.fillRect(this.x, this.y, this.radius, 10);
 
-    ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
+    ctx.save();
+    ctx.translate(this.x, this.y);
+if (this.x >= mouse.x) {
+  ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x - 60, this.y - 45, this.spriteWidth/4, this.spriteHeight/4);
+} else {
+  ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x - 60, this.y - 45, this.spriteWidth/4, this.spriteHeight/4);
+}
   }
 }
 const player = new Player();
