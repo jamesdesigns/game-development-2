@@ -26,9 +26,9 @@ canvas.addEventListener('mouseup', function() {
 })
 // Player
 const playerLeft = new Image();
-playerLeft.src = 'character_move_left.png'; // Find the perfect character facing left for game
+playerLeft.src = '__cartoon_fish_06_blue_swim.png'; // Find the perfect character facing left for game
 const playerRight = new Image();
-playerRight.src = 'character_move_right.png'; // Find the perfect character facing right for game
+playerRight.src = '__cartoon_fish_06_blue_swim.png'; // Find the perfect character facing right for game
 
 class Player {
   constructor() {
