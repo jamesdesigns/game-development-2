@@ -35,7 +35,7 @@ class Player {
     this.x = canvas.width;
     this.y = canvas.height/2;
     this.radius = 50;
-    this.angle = 0;
+    this.angle = 60;
     this.frameX = 0;
     this.frameY = 0;
     this.frame = 0;
@@ -45,11 +45,13 @@ class Player {
   update() {
     const dx = this.x - mouse.x;
     const dy = this.y - mouse.y;
+    let theta = Math.atan2(dy, dx);
+    this.angle = theta;
     if (mouse.x != this.x) {
-      this.x-=dx/10;
+      this.x -= dx/20;
     }
     if(mouse.y != this.y) {
-      this.y -= dy/10;
+      this.y -= dy/20;
     }
   }
   draw() {
@@ -69,16 +71,18 @@ class Player {
 
     ctx.save();
     ctx.translate(this.x, this.y);
-if (this.x >= mouse.x) {
-  ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x - 60, this.y - 45, this.spriteWidth/4, this.spriteHeight/4);
-} else {
-  ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x - 60, this.y - 45, this.spriteWidth/4, this.spriteHeight/4);
-}
+    ctx.rotate(this.angle)
+    if (this.x >= mouse.x) {
+      ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 0 - 60, 0 - 45, this.spriteWidth/4, this.spriteHeight/4);
+    } else {
+      ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 0 - 60, 0 - 45, this.spriteWidth/4, this.spriteHeight/4);
+    }
+    ctx.restore();
   }
 }
 const player = new Player();
 // Bubbles
-const bubblesArray = []
+const bubblesArray = [];
 class Bubble {
   constructor() {
     this.x = Math.random() * canvas.width;
