@@ -6,7 +6,7 @@ canvas.height = 500;
 
 let score = 0;
 let gameFrame = 0;
-ctx.font = '50px Georgia';
+ctx.font = '50px Helvetica';
 
 // Mouse Interactivity
 let canvasPosition = canvas.getBoundingClientRect();
