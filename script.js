@@ -4,6 +4,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500;
 
+
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
+
 let score = 0;
 let gameFrame = 0;
 ctx.font = '50px Helvetica';
@@ -154,3 +159,10 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
+// Update timer display
+function updateTimer() {
+  const timerElement = document.getElementById("timer");
+  const seconds = Math.floor(elapsedTime / 1000);
+  timerElement.textContent = "Time: " + seconds;
+}
