@@ -100,7 +100,7 @@ class Bubble {
     this.distance = Math.sqrt(dx*dx + dy*dy);
   }
   draw() {
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = 'yellow';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
@@ -148,7 +148,7 @@ function animate() {
   handleBubbles();
   player.update();
   player.draw();
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = 'white';
   ctx.fillText('score: ' + score, 10, 50);
   gameFrame++;
   requestAnimationFrame(animate);
